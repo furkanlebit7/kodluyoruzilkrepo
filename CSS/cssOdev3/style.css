@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+
+body {
+  text-align: center;
+}
+.google-logo {
+  margin-top: 250px;
+}
+.gray {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100px;
+  background-color: gainsboro;
+}
+.main-input {
+  height: 25px;
+  width: 20%;
+  margin: 0px auto;
+}
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ocean {
+  background-color: #62b3aa;
+  height: 200px;
+  width: 33%;
+  padding: 50px 0px;
+}
+.ocen li {
+  width: 100%;
+}
+.last-li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px auto;
+}
+.last-li a {
+  margin-left: 20px;
+}
