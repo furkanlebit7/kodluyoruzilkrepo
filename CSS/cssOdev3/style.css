@@ -1,0 +1,144 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: arial, sans-serif;
+  background-color: #202124;
+  height: 100vh;
+}
+
+.nav-list {
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav-list li {
+  font-size: 0.8rem;
+  margin-right: 22px;
+}
+.nav-list li a {
+  font-family: arial, sans-serif;
+  color: white;
+}
+
+.nav-list li:last-child img {
+  border-radius: 50%;
+}
+.dflex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main {
+  margin-top: 200px;
+  flex-direction: column;
+}
+
+.search {
+  margin-top: 25px;
+  width: 30.5%;
+  border: 0.6px solid #9aa0a6;
+  padding: 7px 15px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search input {
+  flex-grow: 1;
+  border: none;
+  margin-right: 10px;
+  background-color: #202124;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: lighter;
+}
+.search input:focus {
+  outline: none;
+}
+.search i {
+  color: #9aa0a6;
+  margin-right: 10px;
+}
+
+.buttons {
+  margin-top: 30px;
+}
+
+.buttons button {
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: none;
+  background-color: #303134;
+  color: white;
+}
+
+.main p {
+  padding-top: 30px;
+  color: #9aa0a6;
+  font-size: 0.8rem;
+}
+.main p a {
+  color: rgb(102, 150, 204);
+}
+
+footer {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  background-color: #171717;
+}
+.footer-top {
+  background-color: #171717;
+  padding: 18px 30px;
+  color: #9aa0a6;
+  border-bottom: 0.2px solid #292929;
+}
+.footer-bottom {
+  background-color: #171717;
+  padding: 18px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #9aa0a6;
+  font-size: 0.9rem;
+}
+.bilgiler {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bilgiler li {
+  margin-right: 10px;
+}
+.copyright {
+  margin-right: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.copyright i {
+  color: #71b049;
+}
+.gizlilik {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.gizlilik li {
+  margin-left: 10px;
+}
