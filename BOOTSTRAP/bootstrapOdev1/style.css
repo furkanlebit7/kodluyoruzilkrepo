@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+body,
+header {
+  background-color: #e9ecef;
+}
+.list-group-item {
+  background-color: transparent;
+}
+
+.bg-gray {
+  background-color: #e9ecef;
+}
