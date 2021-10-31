@@ -75,13 +75,17 @@ const menu = [
 
 const btnContainer = document.querySelector(".btn-container");
 const menuContainer = document.querySelector(".section-center");
+
 listAllFoods();
+
+/* Butonlarımızı id vererek oluşturuyoruz */
 const createButton = (btnName) => {
   let btn = `<button type="button" id="${btnName}" class="btn btn-outline-dark btn-item">${btnName}</button>`;
 
   return btn;
 };
 
+/* Butonları UI kısmına ekliyor */
 const addButtonsToUI = () => {
   btnContainer.innerHTML =
     createButton("All") +
@@ -93,7 +97,7 @@ const addButtonsToUI = () => {
     createButton("China");
 };
 addButtonsToUI();
-
+/* Buton Event Listeners */
 const btnAll = document
   .querySelector("#All")
   .addEventListener("click", listAllFoods);
@@ -107,6 +111,7 @@ const btnChina = document
   .querySelector("#China")
   .addEventListener("click", listChinaFoods);
 
+/* Bütün yemekleri listeler sayfa ilk yüklendiğinde ve all butonunun triggerlanması ile çalışır*/
 function listAllFoods() {
   let allMenu = "";
   menu.map((x) => {
@@ -114,7 +119,7 @@ function listAllFoods() {
   });
   menuContainer.innerHTML = allMenu;
 }
-
+/* Kore yemeklerini listeler */
 function listKoreanFoods() {
   let allMenu = "";
   menu.map((x) => {
@@ -123,6 +128,7 @@ function listKoreanFoods() {
     }
   });
   menuContainer.innerHTML = allMenu;
+  /* Japon yemeklerini listeler */
 }
 function listJapanFoods() {
   let allMenu = "";
@@ -133,6 +139,8 @@ function listJapanFoods() {
   });
   menuContainer.innerHTML = allMenu;
 }
+
+/* China yemeklerini listeler */
 function listChinaFoods() {
   let allMenu = "";
   menu.map((x) => {
@@ -143,6 +151,7 @@ function listChinaFoods() {
   menuContainer.innerHTML = allMenu;
 }
 
+/* Tek bir yemeğin gövdesini oluşturuyor */
 function createObject(food) {
   let item = `
   <div class="menu-items col-lg-6 col-sm-12">
