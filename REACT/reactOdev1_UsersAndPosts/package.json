@@ -1,0 +1,20 @@
+{
+  "name": "reactodev1_usersandposts",
+  "version": "1.0.0",
+  "description": "using\u001b[1getting data from jsonplaceholder by using async await functions",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app"
+  },
+  "keywords": [
+    "users",
+    "posts"
+  ],
+  "author": "furkanlebit7",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "is-number": "^7.0.0"
+  }
+}
