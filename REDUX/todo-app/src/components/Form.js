@@ -8,7 +8,7 @@ function Form() {
 
   const hangleSubmit = (e) => {
     e.preventDefault();
-
+    if (!title) return;
     dispatch(addTodo({ id: nanoid(10), title, completed: false }));
     setTitle("");
   };
