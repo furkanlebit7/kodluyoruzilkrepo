@@ -1,0 +1,39 @@
+.form-check-input {
+  display: none;
+}
+.form-check-input:checked + label img {
+  opacity: 1;
+}
+.form-check {
+  padding: 0 1rem 0 0;
+}
+.color-check-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+.color-check-label img {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+#color-label-1 {
+  background-color: #233d4d;
+}
+#color-label-2 {
+  background-color: #fe7f2d;
+}
+#color-label-3 {
+  background-color: #fcca46;
+}
+#color-label-4 {
+  background-color: #a1c181;
+}
+#color-label-5 {
+  background-color: #619b8a;
+}
