@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addNoteAsync } from "../redux/todos/notesSlice";
+import { addNoteAsync } from "../redux/todos/notesServices";
 import "../styles/form.css";
 
 function Forms() {

@@ -54,24 +54,24 @@ app.post("/notes", (req, res) => {
   return res.send(note);
 });
 
-app.patch("/todos/:id", (req, res) => {
-  const id = req.params.id;
-  const index = todos.findIndex((todo) => todo.id == id);
-  const completed = Boolean(req.body.completed);
-  if (index > -1) {
-    todos[index].completed = completed;
-  }
-  return res.send(todos[index]);
-});
+// app.patch("/todos/:id", (req, res) => {
+//   const id = req.params.id;
+//   const index = todos.findIndex((todo) => todo.id == id);
+//   const completed = Boolean(req.body.completed);
+//   if (index > -1) {
+//     todos[index].completed = completed;
+//   }
+//   return res.send(todos[index]);
+// });
 
-app.delete("/todos/:id", (req, res) => {
+app.delete("/notes/:id", (req, res) => {
   const id = req.params.id;
-  const index = todos.findIndex((todo) => todo.id == id);
+  const index = notes.findIndex((note) => note.id == id);
   if (index > -1) {
-    todos.splice(index, 1);
+    notes.splice(index, 1);
   }
 
-  res.send(todos);
+  res.send(notes);
 });
 
 const PORT = 7000;

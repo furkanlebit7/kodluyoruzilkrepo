@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getNotes, getNotesAsync, removeNote } from "../redux/todos/notesSlice";
+import { getNotes } from "../redux/todos/notesSlice";
 import Loading from "./Loading";
 import Error from "./Error";
+import { getNotesAsync, removeNoteAsync } from "../redux/todos/notesServices";
 
 function Notes({ filterKey }) {
   const dispatch = useDispatch();
@@ -11,9 +12,8 @@ function Notes({ filterKey }) {
     (state) => state.notes.getNotes.isLoading
   );
   const getItemsError = useSelector((state) => state.notes.getNotes.error);
-  const addItemIsLoading = useSelector(
-    (state) => state.notes.addNote.isLoading
-  );
+  const addNoteError = useSelector((state) => state.notes.addNote.error);
+  const removeNoteError = useSelector((state) => state.notes.removeNote.error);
 
   useEffect(() => {
     dispatch(getNotesAsync());
@@ -22,13 +22,12 @@ function Notes({ filterKey }) {
   if (getItemsIsLoading) {
     return <Loading message={"Loading..."} />;
   }
-  if (addItemIsLoading) {
-    return <Loading message={"Adding..."} />;
-  }
 
   return (
     <div className="mt-5">
       {getItemsError && <Error message={getItemsError} />}
+      {addNoteError && <Error message={addNoteError} />}
+      {removeNoteError && <Error message={removeNoteError} />}
       <div className="modals row">
         {notes.map(
           (note) =>
@@ -83,7 +82,9 @@ function Notes({ filterKey }) {
                           type="button"
                           data-dismiss="modal"
                           className="btn btn-danger"
-                          onClick={() => dispatch(removeNote(note.id))}
+                          onClick={async () =>
+                            await dispatch(removeNoteAsync(note.id))
+                          }
                         >
                           Delete
                         </button>

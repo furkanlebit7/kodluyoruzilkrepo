@@ -1,20 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-export const getNotesAsync = createAsyncThunk(
-  "notes/getNotesAsync",
-  async () => {
-    const res = await axios("http://localhost:7000/notes");
-    return res.data;
-  }
-);
-export const addNoteAsync = createAsyncThunk(
-  "notes/addNotesAsync",
-  async (note) => {
-    const res = await axios.post("http://localhost:7000/notes", note);
-    return res.data;
-  }
-);
+import { createSlice } from "@reduxjs/toolkit";
+import { addNoteAsync, getNotesAsync, removeNoteAsync } from "./notesServices";
 
 export const notesSlice = createSlice({
   name: "notes",
@@ -25,6 +10,10 @@ export const notesSlice = createSlice({
       error: null,
     },
     addNote: {
+      isLoading: false,
+      error: null,
+    },
+    removeNote: {
       isLoading: false,
       error: null,
     },
@@ -61,6 +50,20 @@ export const notesSlice = createSlice({
     [addNoteAsync.rejected]: (state, action) => {
       state.addNote.isLoading = false;
       state.addNote.error = action.error.message;
+    },
+
+    //remove note
+    [removeNoteAsync.pending]: (state, action) => {
+      state.removeNote.isLoading = true;
+    },
+    [removeNoteAsync.fulfilled]: (state, action) => {
+      state.removeNote.isLoading = false;
+      state.items = action.payload;
+    },
+    [removeNoteAsync.rejected]: (state, action) => {
+      state.removeNote.isLoading = false;
+      state.removeNote.error = action.error.message;
+      console.log(action);
     },
   },
 });
