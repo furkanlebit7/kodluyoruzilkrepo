@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 .App-logo {
@@ -35,4 +37,45 @@
   to {
     transform: rotate(360deg);
   }
+}
+.nav {
+}
+.nav ul {
+  background-color: #282c34;
+  padding: 20px 0px;
+  margin: 0 0 20px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.nav ul li a {
+  font-size: 1.5rem;
+  color: black;
+  font-weight: bold;
+  background-color: aquamarine;
+  padding: 5px 10px;
+  border-radius: 20%;
+}
+.nav ul li a:hover {
+  background-color: violet;
+}
+a,
+li {
+  list-style: none;
+  text-decoration: none;
+}
+
+.quote_item {
+  margin-bottom: 10px;
+}
+
+.quote_item q {
+  margin-right: 15px;
+  color: darkblue;
+}
+.quote_item a:hover {
+  text-decoration: underline;
+  color: blue;
 }

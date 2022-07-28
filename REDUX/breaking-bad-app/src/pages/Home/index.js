@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   const characters = useSelector((state) => state.characters.items);
-  const isLoading = useSelector((state) => state.characters.isLoading);
+  const status = useSelector((state) => state.characters.status);
   const error = useSelector((state) => state.characters.error);
   const hasNextPage = useSelector((state) => state.characters.hasNextPage);
   const page = useSelector((state) => state.characters.page);
@@ -17,11 +17,12 @@ function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("useeffect worked");
-    dispatch(fetchCharacters());
-  }, [dispatch]);
+    if (status === "idle") {
+      dispatch(fetchCharacters());
+    }
+  }, [dispatch, status]);
 
-  if (error) {
+  if (status === "failed") {
     return <Error message={error} />;
   }
 
@@ -34,7 +35,7 @@ function Home() {
       >
         {characters.map((character) => (
           <div key={character.char_id}>
-            <Link to="/character/2">
+            <Link to={`/character/${character.char_id}`}>
               <img
                 src={character.img}
                 alt={character.name}
@@ -45,8 +46,8 @@ function Home() {
           </div>
         ))}
       </Masonry>
-      {isLoading && <Loading />}
-      {hasNextPage && !isLoading && (
+      {status === "loading" && <Loading />}
+      {hasNextPage && status === "succeeded" && (
         <button
           onClick={() => dispatch(fetchCharacters(page))}
           className="button"
