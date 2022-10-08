@@ -1,7 +1,7 @@
 import React from 'react'
 import Item from './Item.js'
 
-import items from "./items.js"
+import items from "../items.js"
 
 function Market() {
   return (
