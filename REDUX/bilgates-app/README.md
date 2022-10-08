@@ -1,6 +1,6 @@
 Spend Bill Gates Money App 
 
-<h1> You Can Reach Demo From Here : <h1> <a href="furkanlebit7-billgatesapp.netlify.app" target="_blank">Here</a>
+<h1> You Can Reach Demo From Here : <h1> <a href=https://furkanlebit7-billgatesapp.netlify.app/ target="_blank">Here</a>
 
 ![Screenshot_1](https://user-images.githubusercontent.com/59422278/194716315-1f81569d-75c6-4abc-a478-4fa07ade632e.png)
 ![Screenshot_2](https://user-images.githubusercontent.com/59422278/194716317-30d8e1d3-3796-443c-8df7-93f291141c86.png)
