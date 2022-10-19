@@ -14,25 +14,25 @@ function showTime() {
   let year = date.getFullYear();
 
   switch (dayName) {
-    case 0:
+    case 1:
       dayName = "Pazartesi";
       break;
-    case 1:
+    case 2:
       dayName = "Salı";
       break;
-    case 2:
+    case 3:
       dayName = "Çarşamba";
       break;
-    case 3:
+    case 4:
       dayName = "Perşembe";
       break;
-    case 4:
+    case 5:
       dayName = "Cuma";
       break;
-    case 5:
+    case 6:
       dayName = "Cumartesi";
       break;
-    case 6:
+    case 7:
       dayName = "Pazar";
       break;
   }
