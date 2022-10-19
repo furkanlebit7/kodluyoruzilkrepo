@@ -1,5 +1,7 @@
 Breaking Bad App
 
+You can find the live demo <a href="https://furkanlebit7-breakingbadapp.netlify.app/">Here</a>
+
 Used Redux, React Router, Axios and masonry CSS
 
 ![Screenshot_1](https://user-images.githubusercontent.com/59422278/181630997-346475eb-fcc9-45cd-86dc-de7cb9982a81.png)
