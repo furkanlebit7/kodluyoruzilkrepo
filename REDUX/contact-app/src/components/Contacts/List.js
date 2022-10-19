@@ -1,19 +1,26 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { contactSelectors } from '../../redux/contactSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { contactSelectors, removeAllContacts } from '../../redux/contactSlice'
 import Item from './Item'
 
 function List() {
 
-    const contacts = useSelector(contactSelectors.selectAll)
-    console.log(contacts)
+  const dispatch = useDispatch();
+
+  const contacts = useSelector(contactSelectors.selectAll)
+  const countContacts = useSelector(contactSelectors.selectTotal)
+
+  const handleRemoveAll = () =>{
+    dispatch(removeAllContacts())
+  }
 
   return (
-    <div>
+    <div className='d-flex flex-column w-50  m-auto'>
         
         <ul className="list-group">
             {contacts.map(contact => <Item item={contact} key={contact.id} />)}
         </ul>
+        {countContacts>0 &&<p className='text-danger align-self-end mt-2' onClick={()=>handleRemoveAll()} style={{cursor:"pointer"}}><ins>Remove All</ins></p>}
     </div>
   )
 }

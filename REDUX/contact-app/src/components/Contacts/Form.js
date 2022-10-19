@@ -1,11 +1,12 @@
 import { nanoid } from '@reduxjs/toolkit';
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact, contactSelectors } from '../../redux/contactSlice';
 
 function Form() {
 
     const dispatch = useDispatch();
+
 
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
