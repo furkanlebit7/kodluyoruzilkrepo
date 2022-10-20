@@ -4,14 +4,30 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
+import NotFound from "./components/NotFound/NotFound";
+import Edit from "./components/Edit/Edit";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <NotFound />,
+  },
+  {
+    path: "edit/:id",
+    element: <Edit />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>
 );

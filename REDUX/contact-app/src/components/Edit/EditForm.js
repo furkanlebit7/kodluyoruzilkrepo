@@ -1,27 +1,33 @@
-import { nanoid } from "@reduxjs/toolkit";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactSlice";
+import { useNavigate } from "react-router-dom";
+import { updateContact } from "../../redux/contactSlice";
 
-function Form() {
+function EditForm({ contact }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [name, setName] = useState(contact.name);
+  const [phone, setPhone] = useState(contact.phone_number);
 
-  const handleSubmit = (e) => {
+  const handleEdit = (e) => {
     e.preventDefault();
 
-    if (!name || name.length < 3 || !phone) return false;
-
-    dispatch(addContact({ id: nanoid(), name, phone_number: phone }));
-    setName("");
-    setPhone("");
+    dispatch(
+      updateContact({
+        id: contact.id,
+        changes: {
+          name,
+          phone_number: phone,
+        },
+      })
+    );
+    navigate("/");
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleEdit}>
         <input
           className="form-control"
           placeholder="name"
@@ -35,11 +41,11 @@ function Form() {
           onChange={(e) => setPhone(e.target.value)}
         />
         <button className="btn btn-primary my-3" type="submit">
-          Add
+          Edit
         </button>
       </form>
     </div>
   );
 }
 
-export default Form;
+export default EditForm;
