@@ -1,6 +1,6 @@
 <h1>Here is My Memory Game</h1>
 
-<h2>You Can Reach Live Demo From <a href="www.google.com">Here</a> </h2>
+<h2>You Can Reach Live Demo From <a href="https://furkanlebit7-memorygame.netlify.app" target="_blank">Here</a> </h2>
 
 <h1>Screenshots</h1>
 
