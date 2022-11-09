@@ -15,13 +15,24 @@ function Footer() {
         <Social href={"https://github.com/furkanlebit7"} target="_blank">
           <AiFillGithub />
         </Social>
-        <Social>
+        <Social
+          href={"https://www.linkedin.com/in/furkanlebit7/"}
+          target="_blank"
+        >
           <AiFillLinkedin />
         </Social>
-        <Social>
+        <Social
+          href={"https://www.instagram.com/furkanlebit7/"}
+          target="_blank"
+        >
           <AiFillInstagram />
         </Social>
-        <Social>
+        <Social
+          href={
+            "https://github.com/furkanlebit7/kodluyoruzilkrepo/tree/main/REDUX/suffergame"
+          }
+          target="_blank"
+        >
           <AiFillCode />
         </Social>
       </Socials>
