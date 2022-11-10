@@ -1,4 +1,5 @@
 import "./App.css";
+import Footer from "./components/footer/Footer";
 import Form from "./components/form/Form";
 import Header from "./components/header/Header";
 import Text from "./components/Text/Text";
@@ -12,6 +13,7 @@ function App() {
         <Form />
         <Text />
       </div>
+      <Footer />
     </div>
   );
 }

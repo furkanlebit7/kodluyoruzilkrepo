@@ -5,7 +5,7 @@ import { fetchText } from "../../Redux/services/textService";
 function Form() {
   const dispatch = useDispatch();
 
-  const [paragraph, setParagraph] = useState(10);
+  const [paragraph, setParagraph] = useState(4);
   const [includeHTML, setIncludeHTML] = useState("text");
 
   useEffect(() => {
