@@ -1,0 +1,103 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  background-color: #ffcd38;
+  height: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Space Mono", monospace;
+  color: #4a4a4a;
+  padding-bottom: 50px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.header h1 {
+  order: 2;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.help-button {
+  align-self: flex-end;
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  text-align: center;
+  background-color: #ffdd67;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 10px 10px #646464;
+  transition: box-shadow 0.2s ease-out;
+}
+.help-button:hover {
+  box-shadow: 7px 7px #646464;
+}
+
+.panels {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 75%;
+  margin: 0 auto;
+  height: 600px;
+}
+
+.panel-left,
+.panel-right {
+  width: 45%;
+  height: 100%;
+  padding: 10px;
+  box-shadow: 10px 10px #4a4a4a;
+  background-color: #ffdd67;
+  font-size: 1em;
+  font-family: "Space Mono", monospace;
+  max-width: 700px;
+}
+.panel-left {
+  resize: none;
+  outline: none;
+  overflow-x: hidden;
+  color: #4a4a4a;
+  border: 0;
+}
+.panel-right {
+  overflow: auto;
+  line-height: 2;
+}
+
+/* MEDİA SCREENS */
+
+@media (max-width: 1200px) {
+  .panels {
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .panels {
+    width: 90%;
+    flex-direction: column;
+  }
+  .panel-left,
+  .panel-right {
+    width: 90%;
+    margin: 10px auto;
+  }
+  .header h1 {
+    font-size: 1.5rem;
+  }
+}
