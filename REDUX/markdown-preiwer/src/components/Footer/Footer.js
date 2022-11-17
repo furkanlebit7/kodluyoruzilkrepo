@@ -29,7 +29,7 @@ function Footer() {
         </Social>
         <Social
           href={
-            "https://github.com/furkanlebit7/kodluyoruzilkrepo/tree/main/REDUX/text-generator"
+            "https://github.com/furkanlebit7/kodluyoruzilkrepo/tree/main/REDUX/markdown-preiwer"
           }
           target="_blank"
         >
