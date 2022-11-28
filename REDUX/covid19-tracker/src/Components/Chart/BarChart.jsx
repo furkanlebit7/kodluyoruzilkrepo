@@ -4,17 +4,6 @@ import { Chart } from "chart.js/auto";
 import { useSelector } from "react-redux";
 import { getData } from "../../Redux/Slice/CovidSlice";
 
-const options = {
-  responsive: true,
-  plugins: {
-    legend: { display: false },
-    title: {
-      display: true,
-      text: "Current State in Turkey",
-    },
-  },
-};
-
 function BarChart() {
   const data = useSelector(getData);
 
@@ -45,7 +34,16 @@ function BarChart() {
           }}
           width={"200px"}
           height={"100px"}
-          options={options}
+          options={{
+            responsive: true,
+            plugins: {
+              legend: { display: false },
+              title: {
+                display: true,
+                text: `Current State in ${data.country}`,
+              },
+            },
+          }}
         />
       )}
     </>

@@ -17,10 +17,6 @@ function LineChart() {
     responsive: true,
     plugins: {
       legend: { display: true },
-      title: {
-        display: true,
-        text: "Current State in Turkey",
-      },
     },
   };
 
