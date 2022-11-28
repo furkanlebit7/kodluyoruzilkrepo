@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import "./App.css";
 import Boxes from "./Components/Boxes/Boxes";
@@ -10,18 +10,19 @@ import { fetchData } from "./Redux/Services/CovidService";
 
 function App() {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.covid.data.data);
+
+  const [selectedCountry, setSelectedCountry] = useState("");
 
   useEffect(() => {
-    dispatch(fetchData());
-  }, [dispatch]);
+    dispatch(fetchData(selectedCountry));
+  }, [dispatch, selectedCountry]);
 
   return (
     <AppStyled>
       <Container>
         <Header />
-        {data && <Boxes />}
-        <Dropdown />
+        <Boxes />
+        <Dropdown setSelectedCountry={setSelectedCountry} />
         <Chart />
       </Container>
     </AppStyled>

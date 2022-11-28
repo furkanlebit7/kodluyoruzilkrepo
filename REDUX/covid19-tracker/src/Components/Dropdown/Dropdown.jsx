@@ -1,36 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { fetchCountries, fetchData } from "../../Redux/Services/CovidService";
+import { fetchCountries } from "../../Redux/Services/CovidService";
+import { getCountries } from "../../Redux/Slice/CovidSlice";
 
-function Dropdown() {
+function Dropdown({ setSelectedCountry }) {
   const dispatch = useDispatch();
 
-  const [country, setCountry] = useState("");
-
-  const countries = useSelector((state) => state.covid.countries.countries);
-
   useEffect(() => {
-    dispatch(fetchCountries(country));
-  }, []);
-  useEffect(() => {
-    dispatch(fetchData(country));
-  }, [country]);
+    dispatch(fetchCountries());
+  }, [dispatch]);
+
+  const countries = useSelector(getCountries);
 
   return (
     <StyledDropdown>
       <StyledSelect
         name="drop-down"
         id="drop-down"
-        value={country}
-        onChange={(e) => setCountry(e.target.value)}
+        onChange={(e) => {
+          setSelectedCountry(e.target.value);
+        }}
       >
         <option value="">Global</option>
-        {countries.map((country) => (
-          <option key={country} value={country}>
-            {country}
-          </option>
-        ))}
+        {countries &&
+          countries.map((country) => (
+            <option key={country} value={country}>
+              {country}
+            </option>
+          ))}
       </StyledSelect>
     </StyledDropdown>
   );

@@ -10,7 +10,6 @@ export const CountriesSlice = createSlice({
   initialState: {
     countries: {
       countries: [],
-      status: "idle",
     },
     daily: {
       daily: [],
@@ -24,17 +23,9 @@ export const CountriesSlice = createSlice({
   reducers: {},
   extraReducers: {
     // Get Countries
-    [fetchCountries.pending]: (state) => {
-      state.countries.status = "loading";
-    },
     [fetchCountries.fulfilled]: (state, action) => {
-      state.countries.status = "success";
       state.countries.countries = action.payload;
     },
-    [fetchCountries.rejected]: (state) => {
-      state.countries.status = "error";
-    },
-
     // Get Daily Data
     [fetchDaily.pending]: (state) => {
       state.daily.status = "loading";
@@ -60,5 +51,8 @@ export const CountriesSlice = createSlice({
     },
   },
 });
-
 export default CountriesSlice.reducer;
+
+export const getDaily = (state) => state.covid.daily.daily;
+export const getCountries = (state) => state.covid.countries.countries;
+export const getData = (state) => state.covid.data.data;

@@ -1,102 +1,66 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
 import CountUp from "react-countup";
 
 function Boxes() {
-  const data = useSelector((state) => state.covid.data.data);
-
+  const data = { lastUpdat: "2022-11-24T17:21:06.000Z" };
   return (
-    <>
-      {data && (
-        <BoxesStyled>
-          <BoxStyled border={"#576BFE"} background={"#B0D7FD"}>
-            <StyledCardHeader>
-              <b>{"Infected"}</b>
-            </StyledCardHeader>
-            <Styledh5>
-              <CountUp
-                start={0}
-                end={data.confirmed.value}
-                duration={2}
-                separator=","
-              />
-            </Styledh5>
-            <p>Last Updated at :</p>
-            <LightText>{new Date(data.lastUpdat).toDateString()}</LightText>
-            <LightText>
-              {new Date(data.lastUpdat).toLocaleTimeString()}
-            </LightText>
-            <Smalltext>{"detail.bottomText"}</Smalltext>
-            <p>Argentina</p>
-          </BoxStyled>
-          <BoxStyled border={"#6EFA70"} background={"#DDF6E2"}>
-            <StyledCardHeader>
-              <b>{"Recovered"}</b>
-            </StyledCardHeader>
-            <Styledh5>
-              <CountUp
-                start={0}
-                end={data.recovered.value}
-                duration={2}
-                separator=","
-              />
-            </Styledh5>
-            <p>Last Updated at :</p>
-            <LightText>{new Date(data.lastUpdat).toDateString()}</LightText>
-            <LightText>
-              {new Date(data.lastUpdat).toLocaleTimeString()}
-            </LightText>
-            <Smalltext>{"detail.bottomText"}</Smalltext>
-            <p>Argentina</p>
-          </BoxStyled>
-          <BoxStyled border={"#F96A6A"} background={"#F4D6D6"}>
-            <StyledCardHeader>
-              <b>{"Deaths"}</b>
-            </StyledCardHeader>
-            <Styledh5>
-              <CountUp
-                start={0}
-                end={data.deaths.value}
-                duration={2}
-                separator=","
-              />
-            </Styledh5>
-            <p>Last Updated at :</p>
-            <LightText>{new Date(data.lastUpdat).toDateString()}</LightText>
-            <LightText>
-              {new Date(data.lastUpdat).toLocaleTimeString()}
-            </LightText>
-            <Smalltext>{"detail.bottomText"}</Smalltext>
-            <p>Argentina</p>
-          </BoxStyled>
-          <BoxStyled border={"#F2E564"} background={"#F4E1C9"}>
-            <StyledCardHeader>
-              <b>{"Active"}</b>
-            </StyledCardHeader>
-            <Styledh5>
-              <CountUp
-                start={0}
-                end={
-                  data.confirmed.value -
-                  data.recovered.value -
-                  data.deaths.value
-                }
-                duration={2}
-                separator=","
-              />
-            </Styledh5>
-            <p>Last Updated at :</p>
-            <LightText>{new Date(data.lastUpdat).toDateString()}</LightText>
-            <LightText>
-              {new Date(data.lastUpdat).toLocaleTimeString()}
-            </LightText>
-            <Smalltext>{"detail.bottomText"}</Smalltext>
-            <p>Argentina</p>
-          </BoxStyled>
-        </BoxesStyled>
-      )}
-    </>
+    <div>
+      <BoxesStyled>
+        <BoxStyled border={"#576BFE"} background={"#B0D7FD"}>
+          <StyledCardHeader>
+            <b>{"Infected"}</b>
+          </StyledCardHeader>
+          <Styledh5>
+            <CountUp start={0} end={2222} duration={2} separator="," />
+          </Styledh5>
+          <p>Last Updated at :</p>
+          <LightText>{new Date(data.lastUpdat).toDateString()}</LightText>
+          <LightText>{new Date(data.lastUpdat).toLocaleTimeString()}</LightText>
+          <Smalltext>{"detail.bottomText"}</Smalltext>
+          <p>Argentina</p>
+        </BoxStyled>
+        <BoxStyled border={"#6EFA70"} background={"#DDF6E2"}>
+          <StyledCardHeader>
+            <b>{"Recovered"}</b>
+          </StyledCardHeader>
+          <Styledh5>
+            <CountUp start={0} end={234234} duration={2} separator="," />
+          </Styledh5>
+          <p>Last Updated at :</p>
+          <LightText>{new Date(data.lastUpdat).toDateString()}</LightText>
+          <LightText>{new Date(data.lastUpdat).toLocaleTimeString()}</LightText>
+          <Smalltext>{"detail.bottomText"}</Smalltext>
+          <p>Argentina</p>
+        </BoxStyled>
+        <BoxStyled border={"#F96A6A"} background={"#F4D6D6"}>
+          <StyledCardHeader>
+            <b>{"Deaths"}</b>
+          </StyledCardHeader>
+          <Styledh5>
+            <CountUp start={0} end={23423} duration={2} separator="," />
+          </Styledh5>
+          <p>Last Updated at :</p>
+          <LightText>{new Date(data.lastUpdat).toDateString()}</LightText>
+          <LightText>{new Date(data.lastUpdat).toLocaleTimeString()}</LightText>
+          <Smalltext>{"detail.bottomText"}</Smalltext>
+          <p>Argentina</p>
+        </BoxStyled>
+        <BoxStyled border={"#F2E564"} background={"#F4E1C9"}>
+          <StyledCardHeader>
+            <b>{"Active"}</b>
+          </StyledCardHeader>
+          <Styledh5>
+            <CountUp start={0} end={23423} duration={2} separator="," />
+          </Styledh5>
+          <p>Last Updated at :</p>
+          <LightText>{new Date(data.lastUpdat).toDateString()}</LightText>
+          <LightText>{new Date(data.lastUpdat).toLocaleTimeString()}</LightText>
+          <Smalltext>{"detail.bottomText"}</Smalltext>
+          <p>Argentina</p>
+        </BoxStyled>
+      </BoxesStyled>
+    </div>
   );
 }
 

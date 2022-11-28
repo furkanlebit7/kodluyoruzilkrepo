@@ -1,18 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Line } from "react-chartjs-2";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchDaily } from "../../Redux/Services/CovidService";
 
 function LineChart() {
-  const dispatch = useDispatch();
-
-  const daily = useSelector((state) => state.covid.daily.daily);
-  const countriesStatus = useSelector((state) => state.covid.daily.status);
-
-  useEffect(() => {
-    dispatch(fetchDaily());
-  }, []);
-
   const options = {
     responsive: true,
     plugins: {
@@ -25,17 +14,20 @@ function LineChart() {
   };
 
   const data = {
-    labels: daily.map((day) => day.date),
+    // labels: daily.map((day) => day.date),
+    labels: ["pzt", "sal", "çrş", "prş"],
     datasets: [
       {
         label: "Deaths",
-        data: daily.map((day) => day.deaths),
+        // data: daily.map((day) => day.deaths),
+        data: [1, 2, 3, 4],
         backgroundColor: "rgba(255,0,0,0.5)",
         fill: true,
       },
       {
         label: "Infected",
-        data: daily.map((day) => day.confirmed),
+        // data: daily.map((day) => day.confirmed),
+        data: [2, 3, 4, 5],
 
         backgroundColor: "rgba(0,0,255,0.1)",
         fill: true,
@@ -45,9 +37,7 @@ function LineChart() {
 
   return (
     <div>
-      {countriesStatus && (
-        <Line data={data} width={"200px"} height={"100px"} options={options} />
-      )}
+      <Line data={data} width={"200px"} height={"100px"} options={options} />
     </div>
   );
 }

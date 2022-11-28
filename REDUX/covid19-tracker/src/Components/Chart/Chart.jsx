@@ -6,7 +6,7 @@ import LineChart from "./LineChart";
 function Chart() {
   return (
     <Charts>
-      {/* <BarChart /> */}
+      <BarChart />
       <LineChart />
     </Charts>
   );
