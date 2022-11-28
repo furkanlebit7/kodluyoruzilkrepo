@@ -7,7 +7,7 @@ export const fetchCountries = createAsyncThunk(
     const {
       data: { countries },
     } = await axios.get(`${process.env.REACT_APP_COVID_API_KEY}/countries`);
-    return countries.map((country) => country.name);
+    return countries;
   }
 );
 export const fetchDaily = createAsyncThunk("daily/getDaily", async () => {
@@ -37,5 +37,6 @@ export const fetchData = createAsyncThunk("data/getData", async (country) => {
     recovered,
     deaths,
     lastUpdate,
+    country,
   };
 });

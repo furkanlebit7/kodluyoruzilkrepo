@@ -5,6 +5,7 @@ import "./App.css";
 import Boxes from "./Components/Boxes/Boxes";
 import Chart from "./Components/Chart/Chart";
 import Dropdown from "./Components/Dropdown/Dropdown";
+import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import { fetchData } from "./Redux/Services/CovidService";
 
@@ -23,8 +24,9 @@ function App() {
         <Header />
         <Boxes />
         <Dropdown setSelectedCountry={setSelectedCountry} />
-        <Chart />
+        <Chart selectedCountry={selectedCountry} />
       </Container>
+      <Footer />
     </AppStyled>
   );
 }
@@ -41,8 +43,8 @@ const AppStyled = styled.div`
   );
 `;
 const Container = styled.div`
-  width: 70%;
-  max-width: 1600px;
+  width: 80%;
+  max-width: 1200px;
   height: 100%;
   min-height: 100vh;
   margin: 0 auto;

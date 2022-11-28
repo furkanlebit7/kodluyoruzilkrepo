@@ -1,3 +1,15 @@
+<h1 align="center">Here is COVİD-19 TRACKER </h1>
+
+<h2>You Can Reach Live Demo From <a href="https://furkanlebit7-covid19-tracker.netlify.app" target="_blank">Here</a> </h2>
+
+<p>I made this porject as a clone of Sathananthan Sabesan's project<p>
+<p>You can find his project from <a href="https://world19covid.web.app/">here</a><p>
+
+<h1>Screenshots</h1>
+
+![11](https://user-images.githubusercontent.com/59422278/204366736-87d15d79-ff71-4647-97eb-aef78ababbb4.png)
+![22](https://user-images.githubusercontent.com/59422278/204366743-7dd6c33b-b3ec-462b-ac37-968ccd9b04c1.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

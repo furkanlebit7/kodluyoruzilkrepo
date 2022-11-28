@@ -25,8 +25,8 @@ function Dropdown({ setSelectedCountry }) {
         <option value="">Global</option>
         {countries &&
           countries.map((country) => (
-            <option key={country} value={country}>
-              {country}
+            <option key={country.name} value={country.name}>
+              {country.name}
             </option>
           ))}
       </StyledSelect>

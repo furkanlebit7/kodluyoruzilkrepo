@@ -3,11 +3,14 @@ import styled from "styled-components";
 import BarChart from "./BarChart";
 import LineChart from "./LineChart";
 
-function Chart() {
+function Chart({ selectedCountry }) {
   return (
     <Charts>
-      <BarChart />
-      <LineChart />
+      {selectedCountry === "" ? (
+        <LineChart />
+      ) : (
+        <BarChart selectedCountry={selectedCountry} />
+      )}
     </Charts>
   );
 }

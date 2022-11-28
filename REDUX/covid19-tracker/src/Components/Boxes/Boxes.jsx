@@ -1,66 +1,114 @@
 import React from "react";
 import styled from "styled-components";
 import CountUp from "react-countup";
+import { useSelector } from "react-redux";
+import { getData } from "../../Redux/Slice/CovidSlice";
 
 function Boxes() {
-  const data = { lastUpdat: "2022-11-24T17:21:06.000Z" };
+  // const data = { lastUpdat: "2022-11-24T17:21:06.000Z" };
+
+  const data = useSelector(getData);
+
   return (
-    <div>
+    <>
       <BoxesStyled>
         <BoxStyled border={"#576BFE"} background={"#B0D7FD"}>
           <StyledCardHeader>
             <b>{"Infected"}</b>
           </StyledCardHeader>
           <Styledh5>
-            <CountUp start={0} end={2222} duration={2} separator="," />
+            {data.confirmed && (
+              <CountUp
+                start={0}
+                end={data.confirmed.value}
+                duration={2}
+                separator=","
+              />
+            )}
           </Styledh5>
           <p>Last Updated at :</p>
-          <LightText>{new Date(data.lastUpdat).toDateString()}</LightText>
-          <LightText>{new Date(data.lastUpdat).toLocaleTimeString()}</LightText>
-          <Smalltext>{"detail.bottomText"}</Smalltext>
-          <p>Argentina</p>
+          <LightText>{new Date(data.lastUpdate).toDateString()}</LightText>
+          <LightText>
+            {new Date(data.lastUpdate).toLocaleTimeString()}
+          </LightText>
+          <Smalltext>Number of infect cases of COVID-19</Smalltext>
+          <p>{data.country}</p>
         </BoxStyled>
+
         <BoxStyled border={"#6EFA70"} background={"#DDF6E2"}>
           <StyledCardHeader>
             <b>{"Recovered"}</b>
           </StyledCardHeader>
           <Styledh5>
-            <CountUp start={0} end={234234} duration={2} separator="," />
+            {data.recovered && (
+              <CountUp
+                start={0}
+                end={data.recovered.value}
+                duration={2}
+                separator=","
+              />
+            )}
           </Styledh5>
           <p>Last Updated at :</p>
-          <LightText>{new Date(data.lastUpdat).toDateString()}</LightText>
-          <LightText>{new Date(data.lastUpdat).toLocaleTimeString()}</LightText>
-          <Smalltext>{"detail.bottomText"}</Smalltext>
-          <p>Argentina</p>
+          <LightText>{new Date(data.lastUpdate).toDateString()}</LightText>
+          <LightText>
+            {new Date(data.lastUpdate).toLocaleTimeString()}
+          </LightText>
+          <Smalltext>Number of recoveries from COVID-19</Smalltext>
+          <p>{data.country}</p>
         </BoxStyled>
+
         <BoxStyled border={"#F96A6A"} background={"#F4D6D6"}>
           <StyledCardHeader>
             <b>{"Deaths"}</b>
           </StyledCardHeader>
           <Styledh5>
-            <CountUp start={0} end={23423} duration={2} separator="," />
+            {data.deaths && (
+              <CountUp
+                start={0}
+                end={data.deaths.value}
+                duration={2}
+                separator=","
+              />
+            )}
           </Styledh5>
           <p>Last Updated at :</p>
-          <LightText>{new Date(data.lastUpdat).toDateString()}</LightText>
-          <LightText>{new Date(data.lastUpdat).toLocaleTimeString()}</LightText>
-          <Smalltext>{"detail.bottomText"}</Smalltext>
-          <p>Argentina</p>
+          <LightText>{new Date(data.lastUpdate).toDateString()}</LightText>
+          <LightText>
+            {new Date(data.lastUpdate).toLocaleTimeString()}
+          </LightText>
+          <Smalltext>Number of deaths caused by COVID-19</Smalltext>
+          <p>{data.country}</p>
         </BoxStyled>
+
         <BoxStyled border={"#F2E564"} background={"#F4E1C9"}>
           <StyledCardHeader>
             <b>{"Active"}</b>
           </StyledCardHeader>
           <Styledh5>
-            <CountUp start={0} end={23423} duration={2} separator="," />
+            {data.confirmed && (
+              <CountUp
+                start={0}
+                end={
+                  data.confirmed.value -
+                  data.recovered.value -
+                  data.deaths.value
+                }
+                duration={2}
+                separator=","
+              />
+            )}
           </Styledh5>
           <p>Last Updated at :</p>
-          <LightText>{new Date(data.lastUpdat).toDateString()}</LightText>
-          <LightText>{new Date(data.lastUpdat).toLocaleTimeString()}</LightText>
-          <Smalltext>{"detail.bottomText"}</Smalltext>
-          <p>Argentina</p>
+          <LightText>{new Date(data.lastUpdate).toDateString()}</LightText>
+          <LightText>
+            {new Date(data.lastUpdate).toLocaleTimeString()}
+          </LightText>
+          <Smalltext>Number of active cases of COVID-19</Smalltext>
+          <p>{data.country}</p>
         </BoxStyled>
       </BoxesStyled>
-    </div>
+    </>
   );
 }
 
@@ -69,23 +117,27 @@ export default Boxes;
 export const BoxesStyled = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 90%;
+  justify-content: space-between;
+  width: 100%;
   @media (max-width: 1250px) {
     width: 100%;
   }
+  @media (max-width: 1280px) {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
 `;
 const BoxStyled = styled.div`
-  width: 240px;
-  height: 280px;
-  margin: 0 10px;
+  width: 250px;
+  height: 250px;
+  overflow: auto;
   background-color: ${(props) => props.background};
   border-bottom: 10px solid ${(props) => props.border};
   border-radius: 10px;
   padding: 30px;
-  @media (max-width: 1450px) {
-    width: 220px;
-    height: 260px;
+  @media (max-width: 1280px) {
+    width: 100%;
+    margin-bottom: 20px;
   }
 `;
 
