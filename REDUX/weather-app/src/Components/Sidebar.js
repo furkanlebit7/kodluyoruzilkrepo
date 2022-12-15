@@ -7,10 +7,18 @@ import Search from "./Search";
 import { MdGpsFixed } from "react-icons/md";
 import { AiOutlineCloud } from "react-icons/ai";
 import { FiCloudRain } from "react-icons/fi";
+import { useSelector } from "react-redux";
+import { getCityData } from "../Redux/Slices/WeatherSlice";
 
 const Sidebar = () => {
+  const dailyData = useSelector(getCityData);
+  const main = useSelector((state) => state.weather.main);
+  const status = useSelector((state) => state.weather.status);
+
+  console.log(dailyData);
+
   return (
-    <div className="w-96  h-screen flex flex-col justify-between p-14 ">
+    <div className="w-96  h-screen flex flex-col justify-between p-14">
       <div className="flex items-center justify-between text-lg ">
         <Search />
         <div className="p-2 bg-slate-100 rounded-full">
@@ -22,7 +30,8 @@ const Sidebar = () => {
 
       <div>
         <p className="text-9xl font-light">
-          12<span className="text-yellow-400">°</span>
+          {Math.round(main.temp)}
+          <span className="text-yellow-400">°</span>
         </p>
         <p className="text-2xl font-semibold my-8">
           Monday,{" "}
@@ -42,7 +51,7 @@ const Sidebar = () => {
       </div>
       <div className="relative ">
         <p className="absolute flex items-center justify-center  text-white font-semibold z-40 text-2xl bg-black bg-opacity-40 w-full h-full rounded-2xl">
-          New York, NY, USA{" "}
+          {dailyData.name}
         </p>
         <img
           src={require("../Images/view.jpg")}
