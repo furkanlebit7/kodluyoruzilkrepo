@@ -5,22 +5,28 @@ import { useDispatch, useSelector } from "react-redux";
 import Sidebar from "./Sidebar";
 import Main from "./Main";
 import Error from "./Error";
+import Loading from "./Loading";
 
 //Fetch
-import { fetchCity } from "../Redux/Services/WeatherService";
+import { fetchData } from "../Redux/Services/WeatherService";
+import { getDataStatus } from "../Redux/Slices/WeatherSlice";
 
 const WeatherApp = () => {
+  //Conts
+  const coord = { lon: "34.6509", lat: "36.862" };
+  //Selectors
+  const dataStatus = useSelector(getDataStatus);
+
   const dispatch = useDispatch();
 
-  const status = useSelector((state) => state.weather.status);
-
   useEffect(() => {
-    if (status === "idle") {
-      dispatch(fetchCity("istanbul"));
+    if (dataStatus === "idle") {
+      dispatch(fetchData(coord));
     }
-  }, [dispatch, status]);
+  }, [dataStatus, dispatch]);
 
-  if (status === "loading") return <div>Loading...</div>;
+  if (dataStatus === "loading") return <Loading />;
+  if (dataStatus === "failed") return <Error />;
 
   return (
     <div className="flex">

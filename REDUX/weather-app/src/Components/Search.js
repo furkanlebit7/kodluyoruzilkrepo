@@ -5,18 +5,38 @@ import { useDispatch, useSelector } from "react-redux";
 import { FiSearch } from "react-icons/fi";
 
 //Fetch
-import { fetchCity } from "../Redux/Services/WeatherService";
+import { fetchCity, fetchData } from "../Redux/Services/WeatherService";
 import { MdGpsFixed } from "react-icons/md";
+import { getCityStatus, getCoord } from "../Redux/Slices/WeatherSlice";
 
 const Search = () => {
   const dispatch = useDispatch();
 
+  //Selectors
+  const coord = useSelector(getCoord);
+  const cityStatus = useSelector(getCityStatus);
+  //Consts
   const [city, setCity] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(fetchCity(city));
+    setCity("");
+  };
+
+  useEffect(() => {
+    if (cityStatus === "succeeded") {
+      dispatch(fetchData(coord));
+    }
+  }, [coord, dispatch]);
+
   return (
-    <div className="flex">
-      <form className="flex items-center px-2 ">
-        <FiSearch />
+    <div
+      className="flex items-center px-2 drop-shadow-none"
+      onSubmit={(e) => handleSubmit(e)}
+    >
+      <FiSearch />
+      <form className="mx-2 ">
         <input
           onChange={(e) => setCity(e.target.value)}
           value={city}
