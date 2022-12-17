@@ -5,28 +5,33 @@ import Search from "./Search";
 
 //Icons
 import { MdGpsFixed } from "react-icons/md";
-import { AiOutlineCloud } from "react-icons/ai";
+import { CiTempHigh } from "react-icons/ci";
 import { FiCloudRain } from "react-icons/fi";
 import { useSelector } from "react-redux";
+
+//Get Data
 import { getCityData } from "../Redux/Slices/WeatherSlice";
 
 const Sidebar = () => {
-  const dailyData = useSelector(getCityData);
+  const cityData = useSelector(getCityData);
   const main = useSelector((state) => state.weather.main);
+  const weather = useSelector((state) => state.weather.weather);
   const status = useSelector((state) => state.weather.status);
 
-  console.log(dailyData);
-
   return (
-    <div className="w-96  h-screen flex flex-col justify-between p-14">
+    <div className="dark:bg-darkMain dark:text-white w-96  h-screen flex flex-col justify-between p-14">
       <div className="flex items-center justify-between text-lg ">
         <Search />
-        <div className="p-2 bg-slate-100 rounded-full">
+        <div className="dark:bg-darkBg bg-bgMain rounded-full p-2 cursor-pointer">
           <MdGpsFixed />
         </div>
       </div>
-
-      <img src={require("../Images/17.png")} alt="weather" />
+      {status === "succeeded" && (
+        <img
+          src={require(`../Images/icons/${weather.icon}.png`)}
+          alt="weather"
+        />
+      )}
 
       <div>
         <p className="text-9xl font-light">
@@ -41,8 +46,10 @@ const Sidebar = () => {
       <hr />
       <div>
         <div className="flex items-center text-l py-2">
-          <AiOutlineCloud className="fill-gray-400 text-xl mr-3" />{" "}
-          <p className=" font-medium">Mostly Cloudy</p>
+          <CiTempHigh className="fill-gray-400 text-xl mr-3" />{" "}
+          <p className=" font-medium">
+            Feels Like {Math.round(main.feels_like)}
+          </p>
         </div>
         <div className="flex items-center text-l py-2">
           <FiCloudRain className="text-blue-400 text-xl mr-3" />{" "}
@@ -51,10 +58,10 @@ const Sidebar = () => {
       </div>
       <div className="relative ">
         <p className="absolute flex items-center justify-center  text-white font-semibold z-40 text-2xl bg-black bg-opacity-40 w-full h-full rounded-2xl">
-          {dailyData.name}
+          {cityData.name}
         </p>
         <img
-          src={require("../Images/view.jpg")}
+          src={require("../Images/views/view.jpg")}
           alt="city"
           className="h-28 w-full object-cover rounded-2xl opacity-90"
         />

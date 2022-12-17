@@ -1,10 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchCity = createAsyncThunk("city/getCity", async (city) => {
+export const fetchCity = createAsyncThunk("data/getData", async (city) => {
   const {
     data: cityData,
     data: { main },
+    data: { weather },
     data: {
       coord: { lat, lon },
     },
@@ -16,5 +17,5 @@ export const fetchCity = createAsyncThunk("city/getCity", async (city) => {
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=${process.env.REACT_APP_API_KEY}`
   );
 
-  return { cityData, weeklyData, main };
+  return { cityData, weeklyData, main, weather: weather[0] };
 });

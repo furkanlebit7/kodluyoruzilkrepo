@@ -2,9 +2,13 @@ import React from "react";
 
 const Card = () => {
   return (
-    <div className="bg-white md:w-15 xl:w-40 py-5 px-10 h-40 rounded-2xl flex flex-col justify-between items-center">
+    <div className="dark:bg-darkMain dark:text-white bg-white md:w-15 xl:w-40 py-5 px-10 h-52 rounded-2xl flex flex-col justify-between items-center drop-shadow-lg">
       <p>Mon</p>
-      <img src={require("../Images/17.png")} alt="weather" className="w-10" />
+      <img
+        src={require("../Images/icons/04d.png")}
+        alt="weather"
+        className="w-10"
+      />
       <p>
         15° <span>-3°</span>
       </p>
