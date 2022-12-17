@@ -21,9 +21,9 @@ const Header = () => {
 
   return (
     <div className="flex items-center justify-between dark:text-white text-darkMain">
-      <h1 className="font-bold text-4xl">Weekly</h1>
+      <h1 className="text-2xl">Weekly</h1>
       <button
-        className=" text-3xl p-2 rounded-full"
+        className=" text-2xl p-2 rounded-full"
         onClick={() => handleTheme()}
       >
         {theme ? <BsSun /> : <BsFillMoonStarsFill />}

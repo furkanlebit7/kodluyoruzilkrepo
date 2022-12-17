@@ -5,7 +5,7 @@ import Weekly from "./Weekly";
 
 const Main = () => {
   return (
-    <div className="dark:bg-darkBg bg-bgMain h-screen w-main px-24 py-12">
+    <div className="dark:bg-darkBg bg-bgMain h-screen w-main px-12 py-12">
       <Header />
       <Weekly />
       <Highlights />

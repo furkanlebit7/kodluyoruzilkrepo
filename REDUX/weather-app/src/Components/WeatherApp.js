@@ -22,8 +22,6 @@ const WeatherApp = () => {
 
   if (status === "loading") return <div>Loading...</div>;
 
-  if (status === "error") return <Error />;
-
   return (
     <div className="flex">
       <Sidebar />
