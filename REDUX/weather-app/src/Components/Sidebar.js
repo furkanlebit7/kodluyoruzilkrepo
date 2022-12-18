@@ -14,16 +14,19 @@ import {
   getCityStatus,
   getCurrentData,
   getDataStatus,
+  getTimeZone,
 } from "../Redux/Slices/WeatherSlice";
+import moment from "moment/moment";
 
 const Sidebar = () => {
   const cityStatus = useSelector(getCityStatus);
   const dataStatus = useSelector(getDataStatus);
   const currentData = useSelector(getCurrentData);
   const cityName = useSelector(getCityName);
+  const timeZone = useSelector(getTimeZone);
 
-  console.log(currentData);
-
+  var moment = require("moment-timezone");
+  console.log(moment().tz("America/Los_Angeles").format("LT"));
   return (
     <>
       {dataStatus === "succeeded" && (
@@ -48,8 +51,10 @@ const Sidebar = () => {
               <span className="text-yellow-400">°</span>
             </p>
             <p className="text-2xl font-semibold my-8">
-              Monday,{" "}
-              <span className="text-neutral-400 font-medium pl-3">16:00</span>
+              {moment().format("dddd")}
+              <span className="text-neutral-400 font-medium pl-3">
+                {moment().format("LT")}
+              </span>
             </p>
           </div>
           <hr />

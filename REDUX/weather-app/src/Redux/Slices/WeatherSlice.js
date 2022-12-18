@@ -11,6 +11,7 @@ export const WeatherSlice = createSlice({
     dailyData: {},
     cityName: "Mersin",
     coord: {},
+    timezone: "",
   },
   reducers: {
     changTheme: (state) => {
@@ -36,9 +37,10 @@ export const WeatherSlice = createSlice({
       state.fetchDataStatus = "loading";
     },
     [fetchData.fulfilled]: (state, action) => {
-      const { current, daily } = action.payload;
+      const { current, daily, timezone } = action.payload;
       state.currentData = current;
       state.dailyData = daily;
+      state.timezone = timezone;
       state.fetchDataStatus = "succeeded";
     },
     [fetchData.rejected]: (state, action) => {
@@ -57,3 +59,4 @@ export const getCityStatus = (state) => state.weather.fetchCityStatus;
 export const getCoord = (state) => state.weather.coord;
 export const getCityName = (state) => state.weather.cityName;
 export const getCurrentData = (state) => state.weather.currentData;
+export const getTimeZone = (state) => state.weather.timezone;
