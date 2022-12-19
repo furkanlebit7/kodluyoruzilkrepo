@@ -17,18 +17,20 @@ const Search = () => {
   const cityStatus = useSelector(getCityStatus);
   //Consts
   const [city, setCity] = useState("");
+  const [fetching, setFetching] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFetching(true);
     dispatch(fetchCity(city));
-    setCity("");
   };
 
   useEffect(() => {
-    if (cityStatus === "succeeded") {
+    if (cityStatus === "succeeded" && fetching) {
       dispatch(fetchData(coord));
+      setFetching(false);
     }
-  }, [coord, dispatch]);
+  }, [coord, dispatch, cityStatus, fetching]);
 
   return (
     <div

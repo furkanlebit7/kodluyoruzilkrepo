@@ -23,7 +23,7 @@ const WeatherApp = () => {
     if (dataStatus === "idle") {
       dispatch(fetchData(coord));
     }
-  }, [dataStatus, dispatch]);
+  }, [dispatch]);
 
   if (dataStatus === "loading") return <Loading />;
   if (dataStatus === "failed") return <Error />;

@@ -25,8 +25,8 @@ const Sidebar = () => {
   const cityName = useSelector(getCityName);
   const timeZone = useSelector(getTimeZone);
 
-  var moment = require("moment-timezone");
-  console.log(moment().tz("America/Los_Angeles").format("LT"));
+  // var moment = require("moment-timezone");
+  // console.log(moment().tz("America/Los_Angeles").format("LT"));
   return (
     <>
       {dataStatus === "succeeded" && (
