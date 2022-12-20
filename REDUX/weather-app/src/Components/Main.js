@@ -1,7 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
+//Selectors
 import { getDataStatus } from "../Redux/Slices/WeatherSlice";
-import Header from "./Header";
+
+//Components
 import Highlights from "./Highlights";
 import Weekly from "./Weekly";
 
@@ -11,8 +14,7 @@ const Main = () => {
   return (
     <>
       {dataStatus === "succeeded" && (
-        <div className="dark:bg-darkBg bg-bgMain h-screen w-main px-12 py-12">
-          <Header />
+        <div className="dark:bg-darkBg bg-bgMain h-screen w-full res:w-main px-12 py-12 ">
           <Weekly />
           <Highlights />
         </div>

@@ -9,7 +9,7 @@ const Card = ({ data }) => {
   const moment = require("moment-timezone");
 
   return (
-    <div className="dark:bg-darkMain dark:text-white bg-white w-36 py-5  h-52 rounded-2xl flex flex-col justify-between items-center drop-shadow-lg text-center">
+    <div className="dark:bg-darkMain dark:text-white bg-white w-28 2xl:w-36 py-5  h-52 rounded-2xl flex flex-col justify-between items-center drop-shadow-lg text-center">
       <p className="font-semibold">
         {moment(data.dt * 1000)
           .tz(timeZone)

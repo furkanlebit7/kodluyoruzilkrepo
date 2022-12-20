@@ -30,7 +30,7 @@ const Sidebar = () => {
   return (
     <>
       {dataStatus === "succeeded" && (
-        <div className="dark:bg-darkMain dark:text-white w-96  h-screen flex flex-col justify-between p-14 ">
+        <div className="dark:bg-darkMain dark:text-white res:w-96 w-full  h-screen flex flex-col justify-between p-14 items-center res:items-start">
           <div className="flex items-center justify-between text-lg flex-col">
             <Search />
             {cityStatus === "failed" && (
@@ -42,7 +42,7 @@ const Sidebar = () => {
           <img
             src={require(`../Images/icons/02d.png`)}
             alt="weather"
-            className="drop-shadow-lg"
+            className="drop-shadow-lg res:w-full w-48"
           />
 
           <div className="drop-shadow-lg">
@@ -83,7 +83,7 @@ const Sidebar = () => {
                 Math.random() * 10 + 1
               )}.jpg`)}
               alt="city"
-              className="h-28 w-full object-cover rounded-2xl opacity-90"
+              className="h-28 w-64 res:w-full object-cover rounded-2xl opacity-90"
             />
           </div>
         </div>

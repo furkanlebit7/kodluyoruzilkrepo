@@ -31,7 +31,7 @@ const WeatherApp = () => {
   if (dataStatus === "failed") return <Error />;
 
   return (
-    <div className="flex">
+    <div className="flex flex-col res:flex-row">
       <Sidebar />
       <Main />
     </div>
