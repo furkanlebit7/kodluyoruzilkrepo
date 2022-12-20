@@ -10,7 +10,7 @@ const Weekly = () => {
   return (
     <div>
       <Header />
-      <div className="flex items-center justify-between w-full mt-5 flex-wrap">
+      <div className="flex items-center lg:flex-row flex-col justify-between w-full mt-5 flex-wrap">
         {dailyData.slice(1).map((data, i) => (
           <Card key={i} data={data} />
         ))}

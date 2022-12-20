@@ -30,7 +30,7 @@ const Sidebar = () => {
   return (
     <>
       {dataStatus === "succeeded" && (
-        <div className="dark:bg-darkMain dark:text-white res:w-96 w-full  h-screen flex flex-col justify-between p-14 items-center res:items-start">
+        <div className="dark:bg-darkMain dark:text-white res:w-96 w-full h-full res:h-screen flex flex-col justify-between p-14 items-center res:items-start">
           <div className="flex items-center justify-between text-lg flex-col">
             <Search />
             {cityStatus === "failed" && (

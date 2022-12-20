@@ -18,30 +18,32 @@ const Highlights = () => {
   return (
     <div className="mt-6">
       <h2 className="text-2xl dark:text-white">Today's Highlights</h2>
-      <div className="grid grid-cols-[repeat(3,minmax(0,.28fr))] justify-between grid-rows-2 gap-y-8 mt-4">
+      <div className="grid md:grid-cols-[repeat(3,minmax(0,.28fr))] grid-cols-[repeat(2,minmax(0,.45fr))] justify-between grid-rows-3 gap-y-8 mt-4">
         <div className="dark:bg-darkMain dark:text-white bg-white drop-shadow-lg rounded-2xl h-56 p-5 flex flex-col items-start justify-between">
-          <p className="text-gray-500 text-2xl">UV Index</p>
-          <p className="font-semibold text-5xl flex">{currentData.uvi}</p>
+          <p className="text-gray-500 text-lg sm:text-2xl">UV Index</p>
+          <p className="font-semibold text-3xl sm:text-5xl flex">
+            {currentData.uvi}
+          </p>
           <p className="font-semibold text-3xl text-orange-600">
             <GiSunflower />
           </p>
         </div>
         <div className="dark:bg-darkMain dark:text-white bg-white drop-shadow-lg rounded-2xl h-56 p-5 flex flex-col items-start justify-between">
-          <p className="text-gray-500 text-2xl">Wind Status</p>
-          <p className="font-semibold text-5xl flex">
+          <p className="text-gray-500 text-lg sm:text-2xl">Wind Status</p>
+          <p className="font-semibold text-3xl sm:text-5xl  flex">
             {currentData.wind_speed}
-            <span className="text-xl">km/H</span>
+            <span className="text-sm sm:text-xl">km/H</span>
           </p>
           <p className="font-semibold text-3xl text-orange-600">
             <GiWindsock />
           </p>
         </div>
         <div className="dark:bg-darkMain dark:text-white bg-white drop-shadow-lg rounded-2xl h-56 p-5 flex flex-col items-start justify-between">
-          <p className="text-gray-500 text-2xl">Sunrise & Sunset</p>
-          <div className="font-semibold text-4xl my-auto">
+          <p className="text-gray-500 text-lg sm:text-2xl">Sunrise & Sunset</p>
+          <div className="font-semibold text-3xl my-auto">
             <div className="flex items-start justify-center">
               <WiSunrise className="text-orange-500" />
-              <p className="text-3xl">
+              <p className="text-lg sm:text-2xl">
                 {moment(currentData.sunrise * 1000)
                   .tz(timeZone)
                   .format("LT")}
@@ -49,7 +51,7 @@ const Highlights = () => {
             </div>
             <div className="flex items-start justify-center mt-3">
               <WiSunset className="text-orange-600 " />
-              <p className="text-3xl">
+              <p className="text-lg sm:text-2xl">
                 {moment(currentData.sunset * 1000)
                   .tz(timeZone)
                   .format("LT")}
@@ -58,30 +60,30 @@ const Highlights = () => {
           </div>
         </div>
         <div className="dark:bg-darkMain dark:text-white bg-white drop-shadow-lg rounded-2xl h-56 p-5 flex flex-col items-start justify-between">
-          <p className="text-gray-500 text-2xl">Humidity</p>
-          <p className="font-semibold text-5xl flex">
+          <p className="text-gray-500 text-lg sm:text-2xl">Humidity</p>
+          <p className="font-semibold text-3xl sm:text-5xl flex">
             {currentData.humidity}
-            <span className="text-xl">%</span>
+            <span className="text-sm sm:text-xl">%</span>
           </p>
           <p className="font-semibold text-3xl text-orange-600">
             <WiHumidity />
           </p>
         </div>
         <div className="dark:bg-darkMain dark:text-white bg-white drop-shadow-lg rounded-2xl h-56 p-5 flex flex-col items-start justify-between">
-          <p className="text-gray-500 text-2xl">Visibility</p>
-          <p className="font-semibold text-5xl flex">
+          <p className="text-gray-500 text-lg sm:text-2xl">Visibility</p>
+          <p className="font-semibold text-3xl sm:text-5xl flex">
             {currentData.visibility}
-            <span className="text-xl">km</span>
+            <span className="text-sm sm:text-xl">km</span>
           </p>
           <p className="font-semibold text-3xl text-orange-600">
             <MdVisibility />
           </p>
         </div>
         <div className="dark:bg-darkMain dark:text-white bg-white drop-shadow-lg rounded-2xl h-56 p-5 flex flex-col items-start justify-between">
-          <p className="text-gray-500 text-2xl">Pressure</p>
-          <p className="font-semibold text-5xl flex">
+          <p className="text-gray-500 text-lg sm:text-2xl">Pressure</p>
+          <p className="font-semibold text-3xl sm:text-5xl flex">
             {currentData.pressure}
-            <span className="text-xl">mbar</span>
+            <span className="text-sm sm:text-xl">mbar</span>
           </p>
           <p className="font-semibold text-3xl text-orange-600">
             <WiEarthquake />
