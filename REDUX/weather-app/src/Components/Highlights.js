@@ -18,7 +18,7 @@ const Highlights = () => {
   return (
     <div className="mt-6">
       <h2 className="text-2xl dark:text-white">Today's Highlights</h2>
-      <div className="grid md:grid-cols-[repeat(3,minmax(0,.28fr))] grid-cols-[repeat(2,minmax(0,.45fr))] justify-between grid-rows-3 gap-y-8 mt-4">
+      <div className="grid md:grid-cols-[repeat(3,minmax(0,.28fr))] grid-cols-[repeat(2,minmax(0,.45fr))] justify-between grid-rows-3 md:grid-rows-2 gap-y-8 mt-4">
         <div className="dark:bg-darkMain dark:text-white bg-white drop-shadow-lg rounded-2xl h-56 p-5 flex flex-col items-start justify-between">
           <p className="text-gray-500 text-lg sm:text-2xl">UV Index</p>
           <p className="font-semibold text-3xl sm:text-5xl flex">

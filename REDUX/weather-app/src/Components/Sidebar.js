@@ -40,7 +40,7 @@ const Sidebar = () => {
             )}
           </div>
           <img
-            src={require(`../Images/icons/02d.png`)}
+            src={require(`../Images/icons/${currentData.weather[0].icon}.png`)}
             alt="weather"
             className="drop-shadow-lg res:w-full w-48"
           />
@@ -83,7 +83,7 @@ const Sidebar = () => {
                 Math.random() * 10 + 1
               )}.jpg`)}
               alt="city"
-              className="h-28 w-64 res:w-full object-cover rounded-2xl opacity-90"
+              className="h-28 w-64  object-cover rounded-2xl opacity-90"
             />
           </div>
         </div>
