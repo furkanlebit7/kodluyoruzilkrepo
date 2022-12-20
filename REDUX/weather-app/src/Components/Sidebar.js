@@ -42,10 +42,10 @@ const Sidebar = () => {
           <img
             src={require(`../Images/icons/${currentData.weather[0].icon}.png`)}
             alt="weather"
-            className="drop-shadow-lg res:w-full w-48"
+            className="drop-shadow-lg res:w-full w-40 my-10 res:my-2"
           />
 
-          <div className="drop-shadow-lg">
+          <div className="drop-shadow-lg text-center res:text-start">
             <p className="text-9xl font-light">
               {Math.round(currentData.temp)}
               <span className="text-yellow-400">°</span>
