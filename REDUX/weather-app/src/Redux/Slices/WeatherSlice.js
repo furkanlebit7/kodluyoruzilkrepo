@@ -60,3 +60,4 @@ export const getCoord = (state) => state.weather.coord;
 export const getCityName = (state) => state.weather.cityName;
 export const getCurrentData = (state) => state.weather.currentData;
 export const getTimeZone = (state) => state.weather.timezone;
+export const getDailyData = (state) => state.weather.dailyData;

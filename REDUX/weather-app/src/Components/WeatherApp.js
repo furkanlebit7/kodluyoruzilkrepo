@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 //Components
@@ -13,7 +13,9 @@ import { getDataStatus } from "../Redux/Slices/WeatherSlice";
 
 const WeatherApp = () => {
   //Conts
-  const coord = { lon: "34.6509", lat: "36.862" };
+  const coord = useMemo(() => {
+    return { lon: "34.6509", lat: "36.862" };
+  }, []);
   //Selectors
   const dataStatus = useSelector(getDataStatus);
 
@@ -23,7 +25,7 @@ const WeatherApp = () => {
     if (dataStatus === "idle") {
       dispatch(fetchData(coord));
     }
-  }, [dispatch]);
+  }, [dispatch, coord, dataStatus]);
 
   if (dataStatus === "loading") return <Loading />;
   if (dataStatus === "failed") return <Error />;

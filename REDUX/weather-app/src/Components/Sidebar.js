@@ -6,7 +6,7 @@ import Search from "./Search";
 
 //Icons
 import { CiTempHigh } from "react-icons/ci";
-import { FiCloudRain } from "react-icons/fi";
+import { FiWind } from "react-icons/fi";
 
 //Get Data
 import {
@@ -16,17 +16,17 @@ import {
   getDataStatus,
   getTimeZone,
 } from "../Redux/Slices/WeatherSlice";
-import moment from "moment/moment";
 
 const Sidebar = () => {
+  //Selectors
   const cityStatus = useSelector(getCityStatus);
   const dataStatus = useSelector(getDataStatus);
   const currentData = useSelector(getCurrentData);
   const cityName = useSelector(getCityName);
   const timeZone = useSelector(getTimeZone);
 
-  // var moment = require("moment-timezone");
-  // console.log(moment().tz("America/Los_Angeles").format("LT"));
+  //Moment
+  const moment = require("moment-timezone");
   return (
     <>
       {dataStatus === "succeeded" && (
@@ -51,21 +51,25 @@ const Sidebar = () => {
               <span className="text-yellow-400">°</span>
             </p>
             <p className="text-2xl font-semibold my-8">
-              {moment().format("dddd")}
+              {moment().tz(timeZone).format("dddd")}
               <span className="text-neutral-400 font-medium pl-3">
-                {moment().format("LT")}
+                {moment().tz(timeZone).format("LT")}
               </span>
             </p>
           </div>
           <hr />
           <div className="drop-shadow-lg">
             <div className="flex items-center text-l py-2">
-              <CiTempHigh className="fill-gray-400 text-xl mr-3" />{" "}
-              <p className=" font-medium">Feels Like 13°</p>
+              <CiTempHigh className="text-blue-400 text-xl mr-3" />{" "}
+              <p className=" font-medium">
+                Feels Like {Math.round(currentData.feels_like)}°
+              </p>
             </div>
             <div className="flex items-center text-l py-2">
-              <FiCloudRain className="text-blue-400 text-xl mr-3" />{" "}
-              <p className=" font-medium">Rain - 30%</p>
+              <FiWind className="text-blue-400 text-xl mr-3" />{" "}
+              <p className=" font-medium">
+                Wind Speed - {currentData.wind_speed}
+              </p>
             </div>
           </div>
           <div className="relative drop-shadow-lg">
@@ -75,7 +79,9 @@ const Sidebar = () => {
                 : cityName}
             </p>
             <img
-              src={require("../Images/views/view.jpg")}
+              src={require(`../Images/views/view${Math.floor(
+                Math.random() * 10 + 1
+              )}.jpg`)}
               alt="city"
               className="h-28 w-full object-cover rounded-2xl opacity-90"
             />
