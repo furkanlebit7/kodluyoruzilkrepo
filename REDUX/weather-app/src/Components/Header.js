@@ -13,6 +13,8 @@ const Header = () => {
     theme
       ? document.documentElement.classList.add("dark")
       : document.documentElement.classList.remove("dark");
+
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const handleTheme = () => {

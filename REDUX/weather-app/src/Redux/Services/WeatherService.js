@@ -13,6 +13,7 @@ export const fetchCity = createAsyncThunk("weather/getCity", async (city) => {
 });
 
 export const fetchData = createAsyncThunk("weather/getData", async (coord) => {
+  console.log("service", coord);
   const {
     data: { current },
     data: { daily },

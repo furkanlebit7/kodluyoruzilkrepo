@@ -6,7 +6,7 @@ export const WeatherSlice = createSlice({
   initialState: {
     fetchCityStatus: "idle",
     fetchDataStatus: "idle",
-    theme: "",
+    theme: localStorage.getItem("theme") ? localStorage.getItem("theme") : "",
     currentData: {},
     dailyData: {},
     cityName: "Mersin",
@@ -16,6 +16,10 @@ export const WeatherSlice = createSlice({
   reducers: {
     changTheme: (state) => {
       state.theme = state.theme === "" ? "dark" : "";
+    },
+    changeLocation: (state, action) => {
+      state.coord = action.payload;
+      state.cityName = "Your Location";
     },
   },
   extraReducers: {
@@ -52,6 +56,7 @@ export default WeatherSlice.reducer;
 
 //Actions
 export const { changTheme } = WeatherSlice.actions;
+export const { changeLocation } = WeatherSlice.actions;
 
 //Selectors
 export const getDataStatus = (state) => state.weather.fetchDataStatus;

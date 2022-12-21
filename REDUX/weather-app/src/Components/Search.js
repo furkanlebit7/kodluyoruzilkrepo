@@ -7,7 +7,11 @@ import { FiSearch } from "react-icons/fi";
 //Fetch
 import { fetchCity, fetchData } from "../Redux/Services/WeatherService";
 import { MdGpsFixed } from "react-icons/md";
-import { getCityStatus, getCoord } from "../Redux/Slices/WeatherSlice";
+import {
+  changeLocation,
+  getCityStatus,
+  getCoord,
+} from "../Redux/Slices/WeatherSlice";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -19,18 +23,28 @@ const Search = () => {
   const [city, setCity] = useState("");
   const [fetching, setFetching] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFetching(true);
-    dispatch(fetchCity(city));
-  };
-
   useEffect(() => {
     if (cityStatus === "succeeded" && fetching) {
       dispatch(fetchData(coord));
       setFetching(false);
     }
   }, [coord, dispatch, cityStatus, fetching]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFetching(true);
+    dispatch(fetchCity(city));
+  };
+
+  const handleLocation = () => {
+    setFetching(true);
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude, longitude } }) => {
+        dispatch(fetchData({ lon: longitude, lat: latitude }));
+        dispatch(changeLocation({ lon: longitude, lat: latitude }));
+      }
+    );
+  };
 
   return (
     <div
@@ -47,7 +61,10 @@ const Search = () => {
           placeholder="Search for places..."
         />
       </form>
-      <div className="dark:bg-darkBg bg-bgMain rounded-full p-2 cursor-pointer">
+      <div
+        className="dark:bg-darkBg bg-bgMain rounded-full p-2 cursor-pointer"
+        onClick={() => handleLocation()}
+      >
         <MdGpsFixed />
       </div>
     </div>
