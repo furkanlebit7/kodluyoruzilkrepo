@@ -1,6 +1,6 @@
 # ⛅ Weather App with React
 
-- Patika.dev Redux module "Weather App" project.
+- Patika.dev Redux module Projects : Weather App
 
 ## ➡️ Live Demo
 
@@ -13,6 +13,9 @@
 - Accesses Your Own API key.
 - REACT_APP_API_KEY=your-api
 
+ API Links <br/>
+- [https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,alerts&units=metric&appid={YOUR_API_KEY}](https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,alerts&units=metric&appid={YOUR_API_KEY})
+- [https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={YOUR_API_KEY}](https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={YOUR_API_KEY})
 ## :computer: Setup
 
 1. Clone the repository and install its features.
