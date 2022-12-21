@@ -13,9 +13,11 @@
 - Accesses Your Own API key.
 - REACT_APP_API_KEY=your-api
 
- API Links <br/>
+API Links <br/>
+
 - [https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,alerts&units=metric&appid={YOUR_API_KEY}](https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,alerts&units=metric&appid={YOUR_API_KEY})
 - [https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={YOUR_API_KEY}](https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={YOUR_API_KEY})
+
 ## :computer: Setup
 
 1. Clone the repository and install its features.
@@ -42,6 +44,7 @@ npm start or yarn start
 :heavy_check_mark: Redux state management<br />
 :heavy_check_mark: Daily and Weekly Weather Data<br />
 :heavy_check_mark: Search Your Own Location<br />
+:heavy_check_mark: Local Storage Management<br />
 
 ## :fire: Technologies and Libraries
 
