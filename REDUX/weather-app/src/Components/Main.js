@@ -14,7 +14,7 @@ const Main = () => {
   return (
     <>
       {dataStatus === "succeeded" && (
-        <div className="dark:bg-darkBg bg-bgMain lg:h-screen h-auto  w-full res:w-main px-12 py-12 ">
+        <div className="dark:bg-darkBg bg-bgMain lg:h-screen h-auto  w-full res:w-main px-5 sm:px-12 py-12 ">
           <Weekly />
           <Highlights />
         </div>
