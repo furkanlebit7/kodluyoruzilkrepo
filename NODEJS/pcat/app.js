@@ -10,10 +10,13 @@ const app = express();
 //CONNECT DB
 const connectDb = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/pcat", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(
+      "mongodb+srv://furkanlebit7:bKMHxLuXX9qFGCSP@pcat-app.vjt2tnc.mongodb.net/pcat-db?retryWrites=true&w=majority",
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
   } catch (error) {
     console.log(error.message);
   }
@@ -41,7 +44,7 @@ app.get("/about", pageController.getAboutPage);
 app.get("/add", pageController.getAddPage);
 app.get("/edit/:id", pageController.getEditPage);
 
-const port = 3000;
+const port = process.env.port || 5000;
 app.listen(port, () => {
   console.log("Project is up");
 });

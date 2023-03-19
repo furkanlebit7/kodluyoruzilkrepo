@@ -52,11 +52,13 @@ h2, p { color: #666666; }
     max-height: 720px;
     overflow: hidden;
     background-color: #333;
+    object-fit: contain;
 }
 
 #tm-video {
     width: 100%;
     height: auto;
+    object-fit: contain;
 }
 
 .tm-bg-black {
