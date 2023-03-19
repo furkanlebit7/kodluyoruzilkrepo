@@ -45,5 +45,6 @@ app.get("/edit/:id", pageController.getEditPage);
 
 const port = process.env.port || 5000;
 app.listen(port, () => {
+  console.log(process.env);
   console.log("Project is up");
 });
