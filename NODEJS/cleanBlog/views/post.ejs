@@ -17,7 +17,7 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <header class="masthead" style="background-image: url('../img/post-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -38,16 +38,19 @@
       </div>
     </header>
 
+    <div class="clearfix flex text-center ">
+      <a class="btn btn-warning " href="/edit/<%= post.id %>">Edit Post</a>
+      <a class="btn btn-danger " href="/posts/<%= post.id %>?_method=DELETE"
+        onclick="return confirm('Are You Sure ?')">Delete Post</a>
+    </div>
     <!-- Post Content -->
     <article>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a
-              globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in
-              which there is no center because every point, or none, is center — an equal earth which all men occupy as
-              equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.
-            </p>
+            <p><b>
+                <%= post.description %>
+              </b></p>
 
             <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning
               back from science. The early warnings about technological dangers also come from science.</p>
