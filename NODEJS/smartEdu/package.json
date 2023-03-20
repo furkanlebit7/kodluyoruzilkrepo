@@ -1,0 +1,17 @@
+{
+  "name": "smartedu",
+  "version": "1.0.0",
+  "description": "Education portal",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Furkan Lebit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
