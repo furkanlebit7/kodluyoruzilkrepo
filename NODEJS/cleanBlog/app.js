@@ -11,7 +11,7 @@ const app = express();
 const connectDb = async () => {
   try {
     await mongoose.connect(
-      "mongodb+srv://furkanlebit7:wmD6thh8JatErzPn@celanblog-app.vv0msey.mongodb.net/cleanBlog?retryWrites=true&w=majority",
+      "mongodb+srv://furkanlebit7:thu2RbpgNlIReTME@cleanblog-app.vkntxeo.mongodb.net/cleanBlog?retryWrites=true&w=majority",
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
