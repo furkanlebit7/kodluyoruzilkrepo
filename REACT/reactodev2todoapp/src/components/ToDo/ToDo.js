@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import ToDoBody from "./ToDoBody/ToDoBody";
 import ToDoFooter from "./ToDoFooter/ToDoFooter";
@@ -9,7 +9,7 @@ function ToDo() {
   const [todos, setTodos] = useState([]);
 
   const removeTodo = (id) => {
-    const newTodos = todos.filter((todo) => todo.id != id);
+    const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
   };
 
@@ -33,8 +33,8 @@ function ToDo() {
     activeCategory === "All"
       ? todos
       : activeCategory === "Active"
-      ? todos.filter((todo) => todo.done == false)
-      : todos.filter((todo) => todo.done == true);
+      ? todos.filter((todo) => todo.done === false)
+      : todos.filter((todo) => todo.done === true);
 
   //güncel kategoriyi değiştirir
   const categoryHandler = (category) => {

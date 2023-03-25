@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
   return (
     <div>
-      <footer class="info">
+      <footer className="info">
         <p>Click to edit a todo</p>
         <p>
           Stolen by <a href="https://github.com/furkanlebit7">Furkan Lebit</a>{" "}

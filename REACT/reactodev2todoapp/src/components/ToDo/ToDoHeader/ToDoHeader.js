@@ -4,6 +4,7 @@ import { v4 as uuid } from "uuid";
 function ToDoHeader({ addTodo }) {
   const [text, setText] = useState();
 
+  //adds new todo on submit
   const onFormSubmit = (e) => {
     e.preventDefault();
     const todo = {
@@ -16,13 +17,13 @@ function ToDoHeader({ addTodo }) {
     setText("");
   };
   return (
-    <header class="header">
+    <header className="header">
       <h1>todos</h1>
       <form onSubmit={onFormSubmit}>
         <input
-          class="new-todo"
+          className="new-todo"
           placeholder="What needs to be done?"
-          autofocus
+          autoFocus
           value={text}
           onChange={(e) => setText(e.target.value)}
         />

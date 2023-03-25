@@ -2,23 +2,24 @@ import React from "react";
 
 function ToDoBody({ todos, handleTodoDone, removeTodo }) {
   return (
-    <section class="main">
-      <input class="toggle-all" type="checkbox" />
-      <label for="toggle-all">Mark all as complete</label>
+    <section className="main">
+      <input className="toggle-all" type="checkbox" />
+      <label htmlFor="toggle-all">Mark all as complete</label>
 
-      <ul class="todo-list">
+      {/* returns all todo elements */}
+      <ul className="todo-list">
         {todos.map((todo) => (
-          <li key={todo.id} class={todo.done ? "completed" : null}>
-            <div class="view">
+          <li key={todo.id} className={todo.done ? "completed" : null}>
+            <div className="view">
               <input
-                class="toggle"
+                className="toggle"
                 type="checkbox"
                 onClick={() => handleTodoDone(todo.id)}
               />
               <label>{todo.text}</label>
               <button
                 onClick={() => removeTodo(todo.id)}
-                class="destroy"
+                className="destroy"
               ></button>
             </div>
           </li>
