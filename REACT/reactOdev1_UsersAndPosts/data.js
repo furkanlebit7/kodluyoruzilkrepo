@@ -1,6 +1,7 @@
 import axios from "axios";
 import isNumber from "is-number";
 
+//Function calls posts by ID from API.
 const getData = async (id) => {
   if (isNumber(id)) {
     const { data: user } = await axios(
