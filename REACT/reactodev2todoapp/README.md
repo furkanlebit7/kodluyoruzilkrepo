@@ -1,5 +1,9 @@
 # React ToDo App
 
+## Demo
+
+[DEMO](https://furkanlebit7-todo-app.netlify.app/)
+
 ## Features
 
 - Add new ToDo.
@@ -37,10 +41,6 @@ Run the server
 ```bash
   npm start
 ```
-
-## Demo
-
-[DEMO](https://furkanlebit7-todo-app.netlify.app/)
 
 ## Screenshot
 
