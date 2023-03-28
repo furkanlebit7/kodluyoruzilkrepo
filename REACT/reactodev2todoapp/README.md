@@ -38,6 +38,10 @@ Run the server
   npm start
 ```
 
+## Demo
+
+[DEMO](https://furkanlebit7-todo-app.netlify.app/)
+
 ## Screenshot
 
 ![App Screenshot1](https://user-images.githubusercontent.com/59422278/145689083-63df0d1c-55c5-4ac6-b642-070a758323cd.png)
