@@ -2,7 +2,7 @@
 
 ## Demo
 
-[DEMO](https://furkanlebit7-emoji-app.netlify.app/)
+[Emoji Search App](https://furkanlebit7-emoji-app.netlify.app/)
 
 ## Features
 
