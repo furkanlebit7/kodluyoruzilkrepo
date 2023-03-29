@@ -2,7 +2,7 @@
 
 ## Demo
 
-[DEMO](https://furkanlebit7-todo-app.netlify.app/)
+[DEMO](https://furkanlebit7-emoji-app.netlify.app/)
 
 ## Features
 
