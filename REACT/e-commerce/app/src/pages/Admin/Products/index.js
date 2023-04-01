@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { deleteProduct, fetchProductList } from "../../../api";
-import { Text } from "@chakra-ui/react";
+import { Button, Flex, Text } from "@chakra-ui/react";
 import { Popconfirm, Table } from "antd";
 import { Link } from "react-router-dom";
 
@@ -72,7 +72,12 @@ const Products = () => {
   }
   return (
     <div>
-      <Text fontSize="2xl">Products</Text>
+      <Flex justifyContent="space-between" alignItems="center" m={5}>
+        <Text fontSize="2xl">Products</Text>
+        <Link to="products/new">
+          <Button colorScheme="green">Add Product</Button>
+        </Link>
+      </Flex>
       <Table dataSource={data} columns={columns} rowKey="_id" />
     </div>
   );

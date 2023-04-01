@@ -8,17 +8,17 @@ import grantAccess from "../middlewares/grantAccess";
 import { verifyAccessToken } from "../helpers/jwt";
 
 router.post(
-	"/",
-	verifyAccessToken,
-	grantAccess("createAny", "product"),
-	Product.Create
+  "/",
+  verifyAccessToken,
+  grantAccess("createAny", "product"),
+  Product.Create
 );
 router.get(
-	"/:product_id",
-	// verifyAccessToken,
-	// grantAccess('readAny', 'product'),
-	// cache.route(),
-	Product.Get
+  "/:product_id",
+  // verifyAccessToken,
+  // grantAccess('readAny', 'product'),
+  // cache.route(),
+  Product.Get
 );
 // router.get('/', cache.route(), Product.GetList);
 router.get("/", Product.GetList);
