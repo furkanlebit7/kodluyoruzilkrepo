@@ -14,6 +14,7 @@
 ## Used Technologies
 
 **Frontend:** React, React Hooks, Axios, Formik, React-Query, React-Router, Yup.
+</br>
 **Backend:** NodeJs, bcrypt, boom, dotenv, express, jsonwebtoken, mongoose.
 
 ## Design Technologies
