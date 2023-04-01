@@ -46,9 +46,70 @@ export const fetchRegister = async (input) => {
 
   return data;
 };
+//LOGIN USER
+export const fetchLogin = async (input) => {
+  const { data } = await axios.post(
+    `${process.env.REACT_APP_BASE_ENDPOINT}/auth/login`,
+    input
+  );
+
+  return data;
+};
+
+//REFRESH LOGIN
 export const fetchMe = async () => {
   const { data } = await axios.get(
     `${process.env.REACT_APP_BASE_ENDPOINT}/auth/me`
+  );
+
+  return data;
+};
+
+//LOGOUT
+export const fetchLogout = async () => {
+  const { data } = await axios.post(
+    `${process.env.REACT_APP_BASE_ENDPOINT}/auth/logout`,
+    {
+      refresh_token: localStorage.getItem("refresh-token"),
+    }
+  );
+
+  return data;
+};
+
+//POSTS ORDERS
+export const postOrder = async (input) => {
+  const { data } = await axios.post(
+    `${process.env.REACT_APP_BASE_ENDPOINT}/order`,
+    input
+  );
+
+  return data;
+};
+
+// FETCHS ORDERS
+export const fetchOrders = async () => {
+  const { data } = await axios.get(
+    `${process.env.REACT_APP_BASE_ENDPOINT}/order`
+  );
+
+  return data;
+};
+
+// DELETE ITEM
+export const deleteProduct = async (product_id) => {
+  const { data } = await axios.delete(
+    `${process.env.REACT_APP_BASE_ENDPOINT}/product/${product_id}`
+  );
+
+  return data;
+};
+
+//UPDATE PRODUCT
+export const updateProduct = async (input, product_id) => {
+  const { data } = await axios.put(
+    `${process.env.REACT_APP_BASE_ENDPOINT}/product/${product_id}`,
+    input
   );
 
   return data;

@@ -14,7 +14,7 @@ import validationSchema from "./validations";
 import { fetchRegister } from "../../../api";
 import { useAuth } from "../../../contexts/AuthContext";
 
-const Signup = () => {
+const Signup = ({ history }) => {
   const { login } = useAuth();
 
   const formik = useFormik({
@@ -31,6 +31,7 @@ const Signup = () => {
           password: values.password,
         });
         login(registerData);
+        history.push("/");
       } catch (e) {
         bag.setErrors({ general: e.response.data.message });
       }

@@ -10,7 +10,6 @@ const Products = () => {
     error,
     data,
     status,
-    isFetching,
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
